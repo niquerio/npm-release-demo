@@ -12,7 +12,7 @@ jobs:
         id: release
         with:
           release-type: node
-          package-name: niquerio-npm-release-test
+          package-name: "@niquerio/npm-release-demo"
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
       - name: Was a release creteated?
