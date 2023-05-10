@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/niquerio/npm-release-demo/compare/v0.0.1...v0.0.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* just include the dist files ([bafd525](https://github.com/niquerio/npm-release-demo/commit/bafd525f1cc659bf5ef86d6c4d270042c2aad842))
+* rename package in package.json ([9870ec0](https://github.com/niquerio/npm-release-demo/commit/9870ec0a5e2b5d71065282e072e83ded7ce6cf4d))
+
 ## [0.0.1](https://github.com/niquerio/npm-release-demo/compare/v0.0.0...v0.0.1) (2023-05-10)
 
 
