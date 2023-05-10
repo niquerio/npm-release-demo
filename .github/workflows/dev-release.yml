@@ -29,6 +29,6 @@ jobs:
           short_sha=`git rev-parse --short HEAD`
           new_version=`echo -n $version_string | sed "s/.$/${short_sha}/"`
           npm version --commit-hooks false --git-tag-version false $new_version
-      - run: npm publish --access public
+      - run: npm publish --access public --tag dev
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
