@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        fetch-depth: 0
-        ref: ${{ github.event.inputs.sha }}
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.inputs.sha }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
