@@ -1,0 +1,33 @@
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: commit sha
+        required: true
+
+name: dev release
+jobs:
+  release-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        fetch-depth: 0
+        ref: ${{ github.event.inputs.sha }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      - run: |
+          npm install
+          npm run build
+      - name: set version for publishing dev 
+        env:
+          SHA: ${{ github.event.inputs.sha }}
+        run: |
+          version_string=`npm version prerelease --preid "dev" --commit-hooks false --git-tag-version false`
+          short_sha=`git rev-parse --short HEAD`
+          new_version=`echo -n $version_string | sed "s/.$/${short_sha}/"`
+          npm version --commit-hooks false --git-tag-version false $new_version
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
