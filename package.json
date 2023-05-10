@@ -1,6 +1,6 @@
 {
   "name": "@niquerio/npm-release-demo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "demo to figure out how npm releasing works",
   "files": [
     "dist/"
