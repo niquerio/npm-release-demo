@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/niquerio/npm-release-demo/compare/v0.0.2...v0.0.3) (2023-05-10)
+
+
+### Bug Fixes
+
+* changes access to public ([0938139](https://github.com/niquerio/npm-release-demo/commit/0938139fb8bae38d56e4fc9799c8bfe15a9f5529))
+
 ## [0.0.2](https://github.com/niquerio/npm-release-demo/compare/v0.0.1...v0.0.2) (2023-05-10)
 
 
