@@ -9,12 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
           release-type: node
           package-name: niquerio-npm-release-test
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
-          release-as: "0.0.0"
+      - name: Was a release creteated?
+        run: echo ${{ steps.release.outputs.release_created }}
       - uses: actions/checkout@v3
         # these if statements ensure that a publication only occurs when
         # a new release is created:
@@ -24,7 +26,9 @@ jobs:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
         if: ${{ steps.release.outputs.release_created }}
-      - run: npm ci
+      - run: npm install
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npm run build
         if: ${{ steps.release.outputs.release_created }}
       - run: npm publish
         env:
