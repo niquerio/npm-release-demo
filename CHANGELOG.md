@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/niquerio/npm-release-demo/compare/v0.0.3...v0.0.4) (2023-05-11)
+
+
+### Bug Fixes
+
+* change color ([523bd3e](https://github.com/niquerio/npm-release-demo/commit/523bd3e5966c9dde651aeb4ea82d1d72c8831a25))
+
 ## [0.0.3](https://github.com/niquerio/npm-release-demo/compare/v0.0.2...v0.0.3) (2023-05-10)
 
 
