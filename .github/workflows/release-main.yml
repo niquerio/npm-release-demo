@@ -38,6 +38,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - name: echo jsdelivr link
         run: echo "https://cdn.jsdelivr.net/npm/${{ vars.NPM_PACKAGE }}@${{ steps.release.outputs.version }}/"
+        if: ${{ steps.release.outputs.release_created }}
 
   release-next:
     name: release next ${{ github.sha }}
