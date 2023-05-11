@@ -5,9 +5,10 @@ on:
         description: commit sha
         required: true
 
-name: dev release
+name: Release Development
 jobs:
   release-dev:
+    name: release dev ${{ github.event.inputs.sha }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,14 +22,18 @@ jobs:
       - run: |
           npm install
           npm run build
-      - name: set version for publishing dev 
+      - name: set and echo dev version
         env:
           SHA: ${{ github.event.inputs.sha }}
         run: |
-          version_string=`npm version prerelease --preid "dev" --commit-hooks false --git-tag-version false`
+          npm_command="npm version --commit-hooks false --git-tag-version false"
+          version_string=`$npm_command prerelease --preid "dev"`
           short_sha=`git rev-parse --short HEAD`
-          new_version=`echo -n $version_string | sed "s/.$/${short_sha}/"`
-          npm version --commit-hooks false --git-tag-version false $new_version
+          dev_version=`echo -n $version_string | sed "s/.$/${short_sha}/"`
+          $npm_command $dev_version
+          echo "DEV_VERSION=$dev_version" >> $GITHUB_ENV
       - run: npm publish --access public --tag dev
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: echo jsdelivr link
+        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ env.DEV_VERSION }}"
