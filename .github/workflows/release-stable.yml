@@ -15,7 +15,7 @@ jobs:
           package-name: "@niquerio/npm-release-demo"
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
-      - name: What are the outputs? 
+      - name: echo steps context
         env: 
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo $STEPS_CONTEXT
@@ -37,4 +37,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.release_created }}
       - name: echo jsdelivr link
-        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@"
+        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ steps.release.outputs.version }}/"
