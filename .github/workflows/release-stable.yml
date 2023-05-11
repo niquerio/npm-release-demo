@@ -15,8 +15,8 @@ jobs:
           package-name: "@niquerio/npm-release-demo"
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
-      - name: Was a release creteated?
-        run: echo ${{ steps.release.outputs.release_created }}
+      - name: What are the outputs? 
+        run: echo ${{ steps.release.outputs }}
       - uses: actions/checkout@v3
         # these if statements ensure that a publication only occurs when
         # a new release is created:
@@ -34,3 +34,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.release_created }}
+      - name: echo jsdelivr link
+        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@"

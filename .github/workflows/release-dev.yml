@@ -36,4 +36,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: echo jsdelivr link
-        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ env.DEV_VERSION }}"
+        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ env.DEV_VERSION }}/"
