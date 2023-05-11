@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/niquerio/npm-release-demo/compare/v0.0.4...v0.0.5) (2023-05-11)
+
+
+### Bug Fixes
+
+* change to purple ([3fd56e7](https://github.com/niquerio/npm-release-demo/commit/3fd56e7802fd17c50092ba74a14956775d932349))
+
 ## [0.0.4](https://github.com/niquerio/npm-release-demo/compare/v0.0.3...v0.0.4) (2023-05-11)
 
 
