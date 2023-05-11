@@ -38,3 +38,30 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - name: echo jsdelivr link
         run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ steps.release.outputs.version }}/"
+
+  release-next:
+    name: release next ${{ github.sha }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      - run: |
+          npm install
+          npm run build
+      - name: set and echo dev version
+        run: |
+          npm_command="npm version --commit-hooks false --git-tag-version false"
+          version_string=`$npm_command prerelease --preid "next"`
+          short_sha=`git rev-parse --short HEAD`
+          next_version=`echo -n $version_string | sed "s/.$/${short_sha}/"`
+          $npm_command $next_version
+          echo "NEXT_VERSION=$next_version" >> $GITHUB_ENV
+      - run: npm publish --access public --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: echo jsdelivr link
+        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ env.DEV_VERSION }}/"
+

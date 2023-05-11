@@ -23,8 +23,6 @@ jobs:
           npm install
           npm run build
       - name: set and echo dev version
-        env:
-          SHA: ${{ github.event.inputs.sha }}
         run: |
           npm_command="npm version --commit-hooks false --git-tag-version false"
           version_string=`$npm_command prerelease --preid "dev"`
