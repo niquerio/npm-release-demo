@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/niquerio/npm-release-demo/compare/v0.0.5...v0.0.6) (2023-05-11)
+
+
+### Features
+
+* change color to green ([7d0237f](https://github.com/niquerio/npm-release-demo/commit/7d0237f78c1fa16994615747dde4b10ea4fab5a0))
+
 ## [0.0.5](https://github.com/niquerio/npm-release-demo/compare/v0.0.4...v0.0.5) (2023-05-11)
 
 
