@@ -16,7 +16,7 @@ jobs:
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
       - name: What are the outputs? 
-        run: echo ${{ steps.release.outputs }}
+        run: echo ${{ toJson(steps.release.outputs) }}
       - uses: actions/checkout@v3
         # these if statements ensure that a publication only occurs when
         # a new release is created:
