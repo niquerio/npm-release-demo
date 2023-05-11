@@ -3,6 +3,9 @@ on:
     branches:
       - main
 
+env: 
+  NPM_PACKAGE: "@niquerio/npm-release-demo"
+
 name: Release Main
 jobs:
   release-please:
@@ -12,7 +15,7 @@ jobs:
         id: release
         with:
           release-type: node
-          package-name: "@niquerio/npm-release-demo"
+          package-name: ${{ env.NPM_PACKAGE }}
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
       - name: echo steps context
@@ -37,7 +40,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.release_created }}
       - name: echo jsdelivr link
-        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ steps.release.outputs.version }}/"
+        run: echo "https://cdn.jsdelivr.net/npm/${{ env.NPM_PACKAGE }}@${{ steps.release.outputs.version }}/"
 
   release-next:
     name: release next ${{ github.sha }}
@@ -63,5 +66,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: echo jsdelivr link
-        run: echo "https://cdn.jsdelivr.net/npm/@niquerio/npm-release-demo@${{ env.NEXT_VERSION }}/"
+        run: echo "https://cdn.jsdelivr.net/npm/${{ env.NPM_PACKAGE }}@${{ env.NEXT_VERSION }}/"
 
