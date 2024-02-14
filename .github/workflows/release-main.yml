@@ -32,7 +32,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{  secrets.NPM_TOKEN  }}
         if: ${{ steps.release.outputs.release_created }}
       - name: echo jsdelivr link
-        run: echo "https://cdn.jsdelivr.net/npm/${{ vars.NPM_PACKAGE }}@${{ steps.release.outputs.version }}/"
+        run: echo "https://cdn.jsdelivr.net/npm/${{ vars.NPM_PACKAGE }}@${{ steps.release.outputs.version }}/" >> $GITHUB_STEP_SUMMARY
         if: ${{ steps.release.outputs.release_created }}
 
   release-next:
@@ -59,4 +59,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: echo jsdelivr link
-        run: echo "https://cdn.jsdelivr.net/npm/${{ vars.NPM_PACKAGE }}@${{ env.NEXT_VERSION }}/"
+        run: echo "https://cdn.jsdelivr.net/npm/${{ vars.NPM_PACKAGE }}@${{ env.NEXT_VERSION }}/" >> $GITHUB_STEP_SUMMARY
