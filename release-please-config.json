@@ -2,7 +2,7 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@niquerio/npm-release-demo",
+      "package-name": "@niquerio/npm-release-demo"
     }
   }
 }
