@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/niquerio/npm-release-demo/compare/npm-release-demo-v0.1.1...npm-release-demo-v0.1.2) (2024-02-15)
+
+
+### Bug Fixes
+
+* pink ([c9f1eb9](https://github.com/niquerio/npm-release-demo/commit/c9f1eb9c04471758aa0a0fc8f2c41527b9fd6a70))
+
 ## [0.1.1](https://github.com/niquerio/npm-release-demo/compare/npm-release-demo-v0.1.0...npm-release-demo-v0.1.1) (2024-02-15)
 
 
