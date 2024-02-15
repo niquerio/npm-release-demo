@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/niquerio/npm-release-demo/compare/npm-release-demo-v0.1.0...npm-release-demo-v0.1.1) (2024-02-15)
+
+
+### Features
+
+* Merge pull request [#16](https://github.com/niquerio/npm-release-demo/issues/16) from niquerio/blue ([f510b25](https://github.com/niquerio/npm-release-demo/commit/f510b25b6b7c6825e23ab35948e11e76d24f66b8))
+
 ## [0.1.0](https://github.com/niquerio/npm-release-demo/compare/npm-release-demo-v0.0.6...npm-release-demo-v0.1.0) (2024-02-14)
 
 
